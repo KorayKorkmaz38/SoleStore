@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BrandController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,3 +15,5 @@ Route::get('/over', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
+Route::get('/brands/{id}', [BrandController::class, 'show'])->name('brands.show');
